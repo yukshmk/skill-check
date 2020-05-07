@@ -1,5 +1,8 @@
 package q002;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Q002 並べ替える
  *
@@ -45,5 +48,26 @@ public class Q002 {
             "14,林",
             "9,清水"
     };
+
+    public static void main(String[] args) {
+        List<Person> list = new ArrayList<>();
+        String[] getdata;
+        for (int i = 0; i < dataList.length; i++) {
+            getdata = dataList[i].split(",");
+            list.add(new Person(Integer.parseInt(getdata[0]), getdata[1]));
+        }
+        list.sort((a, b) -> a.num - b.num);
+
+        list.forEach(person -> System.out.println(person.num + ", " + person.name));
+    }
+
 }
-// 完成までの時間: xx時間 xx分
+class Person {
+    int num;
+    String name;
+    Person(int num, String name) {
+        this.num = num;
+        this.name = name;
+    }
+}
+// 完成までの時間: 2時間 10分
